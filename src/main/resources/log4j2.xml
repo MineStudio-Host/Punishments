@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration strict="true" monitorInterval="15">
+
+    <Properties>
+        <!-- global layout pattern; designed to show log patterns in fixed sized columns -->
+        <!-- see: https://logging.apache.org/log4j/2.x/manual/layouts.html#PatternLayout -->
+        <!--
+            log message will look like this
+            2017-05-04 15:02:30,220 | DEBUG |            main | d.f.l.Slf4jWithLog4j2Test |      d.f.l.Slf4jWithLog4j2Test(13) |> Hello World!
+         -->
+        <Property name="layoutPattern">%date{DEFAULT} | %level | %thread | %logger{1.} | %class{1.}(%line) |&gt; %message%n</Property>
+    </Properties>
+
+    <Appenders>
+        <Appender type="Console" name="console">
+            <Layout type="PatternLayout" pattern="${layoutPattern}" />
+        </Appender>
+        <Appender type="RollingRandomAccessFile" name="file"
+                  fileName="logs/latest.log" filePattern="logs/server-%i.log">
+            <PatternLayout pattern="${layoutPattern}" />
+            <Policies>
+                <Policy type="SizeBasedTriggeringPolicy" size="10MB" />
+            </Policies>
+            <RolloverStrategy type="DefaultRolloverStrategy" max="10"/>
+        </Appender>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="file" />
+        </Root>
+    </Loggers>
+
+</Configuration>

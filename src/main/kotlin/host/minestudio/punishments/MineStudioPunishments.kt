@@ -1,9 +1,11 @@
-package host.minestudio.punishments;
+package host.minestudio.punishments
 
-public class MineStudioPunishments {
+import host.minestudio.punishments.impl.PunishmentReason
 
-    public static void init() {
+data class PunishmentsConfig(
+    val punishments: Map<String, PunishmentReason>
+)
+lateinit var punishmentConfig: PunishmentsConfig
 
-    }
-
+class MineStudioPunishments {
 }
