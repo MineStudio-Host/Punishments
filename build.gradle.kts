@@ -12,7 +12,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
 
-    implementation("org.jetbrains:annotations:26.0.1")
+    implementation("org.jetbrains:annotations:26.0.2")
 
     implementation("net.minestom:minestom-snapshots:1d0f512256")
     implementation("org.slf4j:slf4j-simple:2.0.16")
