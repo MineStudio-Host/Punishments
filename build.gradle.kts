@@ -16,7 +16,7 @@ dependencies {
 
     implementation("net.minestom:minestom-snapshots:1d0f512256")
     implementation("org.slf4j:slf4j-simple:2.0.16")
-    implementation("net.kyori:adventure-text-minimessage:4.18.0")
+    implementation("net.kyori:adventure-text-minimessage:4.19.0")
 }
 
 tasks.test {
